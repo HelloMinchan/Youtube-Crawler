@@ -44,6 +44,9 @@ for index in range(info_list_len):
     driver.get(main_url_mobile)
     driver.implicitly_wait(delay)
 
+    # --------임시 약관 팝업 제거(deprecated)--------
+    driver.find_element_by_xpath('/html/body/div[1]/ytm-mealbar/div[2]/div/div[1]/c3-material-button/button').click()
+
     # --------검색 버튼 클릭--------
     driver.find_element_by_xpath('//*[@id="header-bar"]/header/div/button').click()
 
