@@ -1,6 +1,7 @@
 # --------모듈--------
 import pymysql as my
 
+
 class DBHelper:
     '''
     멤버변수 : 커넥션
@@ -9,17 +10,20 @@ class DBHelper:
     '''
     생성자
     '''
+
     def __init__(self):
         self.db_init()
+
     '''
     멤버 함수 : 연결, 해제, 검색어 가져오기, 데이터 삽입
     '''
+
     def db_init(self):
         self.conn = my.connect(
                         host='localhost',
                         user='root',
-                        password='1234',
-                        db='youtube_db',
+                        password='',
+                        db='youtube_db',  # data_tb(id, title, views, dates, link, img, keyword), info_tb(id, keyword, playlist_nums)
                         charset='utf8',
                         cursorclass=my.cursors.DictCursor)
 
@@ -45,10 +49,11 @@ class DBHelper:
             cursor.execute(sql, (title, views, dates, link, img, keyword))
         self.conn.commit()
 
+
 # --------테스트 코드--------
 # 단독으로 수행시에만 작동
-if __name__=='__main__':
+if __name__ == '__main__':
     db = DBHelper()
     print(db.db_selectKeyword())
-    db.db_insertCrawlingData('1','2','3','4','5','6')
+    db.db_insertCrawlingData('1', '2', '3', '4', '5', '6')
     db.db_free()
