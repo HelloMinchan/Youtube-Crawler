@@ -1,2 +1,7 @@
 # Youtube-Crawler
-유튜브 정보 크롤러
+**Youtube 재생목록 크롤러**  
+  
+Programming Language : Python  
+Database : MySQL  
+Framwork : Selenium  
+WebDriver : ChromeDriver  
